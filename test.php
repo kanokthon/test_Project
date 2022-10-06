@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+<meta charset="UTF-8">
 </head>
 <body>
-    <h1>This is a Heading</h1>
+<form action="<?=$_SERVER['PHP_SELF'];?>" method="POST">
+กรุณาใส่รัศมีของวงกลม <input type="text" name="v"> 
+<input type="submit" value="คำนวณ">
+
+<?php
+    isset( $_POST['v'] ) ? $v = $_POST['v'] : $v = "";
+    if( !empty( $v ) ) {
+        echo "<hr/>";
+        $pi = 3.14;
+        $total = $pi * ( $v * $v );
+        echo "พื้นที่วงกลม = ".number_format( $total, 2 );
+    }
+?>
+
+</form>
 </body>
 </html>
+P
